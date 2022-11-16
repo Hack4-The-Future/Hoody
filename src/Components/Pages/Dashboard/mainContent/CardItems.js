@@ -1,24 +1,27 @@
-import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
+import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, Timestamp, updateDoc, where } from 'firebase/firestore'
 import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { DbContext } from '../../../../Context/DBContext'
 import { userContext } from '../../../../Context/userContext'
+import { v4 as uuid } from 'uuid'
+import { ChatContext } from '../ChatRoom/context/chatContext'
+
 
 export const CardItems = ({ item, setOpenModalChat }) => {
     const { user } = useContext(userContext)
     const { db } = useContext(DbContext)
     const [userSearch, setUserSearch] = useState({})
+    const { dispatch } = useContext(ChatContext)
 
-
-    const handleDirect = async (id) => {
+    const handleDirect = async (e) => {
         //check whether the group(chats in firestore) exists, if not create
-        console.log('searching', userSearch)
+        console.log('searching', userSearch,)
 
         const combinedId =
-            user.uid > id
-                ? user.uid + id
-                : id + user.uid;
+            user.uid > e.target.id
+                ? user.uid + e.target.id
+                : e.target.id + user.uid;
 
         try {
             const res = await getDoc(doc(db, "chats", combinedId));
@@ -27,8 +30,17 @@ export const CardItems = ({ item, setOpenModalChat }) => {
             if (!res.exists()) {
                 //create a chat in chats collection
                 await setDoc(doc(db, "chats", combinedId), { messages: [] });
+                await updateDoc(doc(db, 'chats', combinedId), {
+                    messages: arrayUnion({
+                        id: uuid(),
+                        text: '',
+                        senderId: user.uid,
+                        date: Timestamp.now(),
+                        img: e.target.parentElement.parentElement.children[0].children[0].src
+                    })
+                })
 
-                await updateDoc(doc(db, "userChats", id), {
+                await updateDoc(doc(db, "userChats", e.target.id), {
                     [combinedId + ".userInfo"]:
                     {
                         uid: user.uid,
@@ -56,7 +68,7 @@ export const CardItems = ({ item, setOpenModalChat }) => {
 
     //search owner
     const searchOwner = async (e) => {
-        console.log(e.target.id)
+        console.log('src-------->', e.target.parentElement.parentElement.children[0].children[0].src)
         setOpenModalChat(true)
         try {
             const q = query(collection(db, 'users'), where('uid', '==', e.target.id))
@@ -66,7 +78,10 @@ export const CardItems = ({ item, setOpenModalChat }) => {
             // setErr(true)
             console.log('user not find')
         }
-        handleDirect(e.target.id)
+        const u = {displayName:userSearch.displayName , photoURL:'' , uid: e.target.id}
+        dispatch({ type: "CHANGE_USER", payload: u })
+        // console.log(u)
+        handleDirect(e)
         console.log('searchUser:', userSearch)
     }
     return (
