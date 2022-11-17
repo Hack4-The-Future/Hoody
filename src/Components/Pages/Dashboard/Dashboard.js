@@ -13,6 +13,7 @@ import { ChatRoom } from './ChatRoom/pages'
 import { UserItems } from './mainContent/UserItems'
 import { UpdateModal } from './Modals/updateModal'
 import { getItemsById } from '../../../DB/getItems'
+import { ChatContextProvider } from './ChatRoom/context/chatContext'
 
 
 
@@ -58,6 +59,7 @@ export const Dashboard = () => {
 
   return (
     <div className='dashboard all-container'>
+      <ChatContextProvider>
       <Sidebar setOpenModal={setOpenModal} setOpenModalChat={setOpenModalChat} setOpenItems={setOpenItems}/>
       <div className='main-profile'>
         <UpdateModal updateModalOpen={updateModalOpen} setUpdateModalOpen={setUpdateModalOpen} coordination={coordination} updateItem={updateItem} setCoordination={setCoordination} setTurnLocation />
@@ -66,8 +68,9 @@ export const Dashboard = () => {
         <ChatRoom openModalChat={openModalChat} setOpenModalChat={setOpenModalChat} />
         {/* <UserItems openItemsModal={setOpenItems}/> */}
         {/* <Header /> */}
-        <MainContent coordination={coordination} items={items} setItems={setItems} />
+        <MainContent coordination={coordination} items={items} setItems={setItems} setOpenModalChat={setOpenModalChat}/>
       </div>
+        </ChatContextProvider>
     </div>
   )
 }
