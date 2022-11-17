@@ -14,6 +14,7 @@ import { UserItems } from './mainContent/UserItems'
 import { UpdateModal } from './Modals/updateModal'
 import { getItemsById } from '../../../DB/getItems'
 import { ChatContextProvider } from './ChatRoom/context/chatContext'
+import { Iframe } from './mainContent/Iframe'
 
 
 
@@ -29,8 +30,8 @@ export const Dashboard = () => {
   const [openModalChat, setOpenModalChat] = useState(false)
   const [updateModalOpen, setUpdateModalOpen] = useState(false)
   const [updateItem, setUpdateItem] = useState({})
-
   const [openItems, setOpenItems] = useState(false)
+  const [openMap , setOpenMap] = useState(false) 
 
 
   //get current location 
@@ -68,7 +69,8 @@ export const Dashboard = () => {
         <ChatRoom openModalChat={openModalChat} setOpenModalChat={setOpenModalChat} />
         {/* <UserItems openItemsModal={setOpenItems}/> */}
         {/* <Header /> */}
-        <MainContent coordination={coordination} items={items} setItems={setItems} setOpenModalChat={setOpenModalChat}/>
+        <MainContent coordination={coordination} items={items} setItems={setItems} setOpenModalChat={setOpenModalChat} setOpenMap={setOpenMap}/>
+        <Iframe openMap ={openMap } setOpenMap ={setOpenMap}/>
       </div>
         </ChatContextProvider>
     </div>
