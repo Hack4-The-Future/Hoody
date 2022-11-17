@@ -14,13 +14,13 @@ export const Search = () => {
     try {
       const q = query(collection(db, 'users'), where('displayName', '==', username))
       const snapShot = await getDocs(q)
-      snapShot.docs.map((doc) => {setUserSearch(doc.data())})
+      snapShot.docs.map((doc) => { setUserSearch(doc.data()) })
       console.log('searching', userSearch)
     } catch (error) {
       setErr(true)
       console.log('user not find')
     }
-    console.log('searchUser:' , userSearch)
+    console.log('searchUser:', userSearch)
   }
 
   function handleKey(e) {
@@ -41,27 +41,27 @@ export const Search = () => {
       if (!res.exists()) {
         //create a chat in chats collection
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
-        
-        await updateDoc(doc(db, "userChats", userSearch.uid), {
-          [combinedId + ".userInfo"]:
-          {
-            uid: user.uid,
-            displayName: user.displayName,
-            photoURL: user.photoURL
-          }
-          , [combinedId + ".date"]: serverTimestamp()
-        });
-
-        await updateDoc(doc(db, "userChats", user.uid), {
-          [combinedId + ".userInfo"]:
-          {
-            uid: userSearch.uid,
-            displayName: userSearch.displayName,
-            photoURL:  userSearch.photoURL
-          }
-          , [combinedId + ".date"]: serverTimestamp()
-        });
       }
+      
+      await updateDoc(doc(db, "userChats", userSearch.uid), {
+        [combinedId + ".userInfo"]:
+        {
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL
+        }
+        , [combinedId + ".date"]: serverTimestamp()
+      });
+
+      await updateDoc(doc(db, "userChats", user.uid), {
+        [combinedId + ".userInfo"]:
+        {
+          uid: userSearch.uid,
+          displayName: userSearch.displayName,
+          photoURL: userSearch.photoURL
+        }
+        , [combinedId + ".date"]: serverTimestamp()
+      });
       console.log('userChats updated')
     } catch (err) { }
     console.log('error')
