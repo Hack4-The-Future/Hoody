@@ -4,6 +4,7 @@ import { ChatContext } from '../context/chatContext'
 import { userContext } from '../../../../../Context/userContext'
 import { Message } from './Message'
 import { DbContext } from '../../../../../Context/DBContext'
+
 export const Messages = () => {
   const [message, setMessage] = useState([])
   const { data } = useContext(ChatContext)
@@ -22,10 +23,19 @@ export const Messages = () => {
 
   console.log(message)
   return (
+    
     <div className='messages'>
+      
       {message && message.map((msg) => {
-        return ( <Message ms = {msg} key={msg.id} /> )
+        return ( 
+       
+         <Message ms = {msg} key={msg.id} /> 
+       
+        )
+
+        
       })}
+
     </div>
   )
 }

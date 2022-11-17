@@ -16,10 +16,15 @@
   background-color: #fefefe;
   margin: 7% auto; /* 15% from the top and centered */
   padding: 10px;
-  border: 1px solid #888;
+
   width: 40%; /* Could be more or less, depending on screen size */
   height: 500px;
-  
+  background: linear-gradient(120deg, rgba(36, 35, 35, 0.167), rgba(18, 17, 17, 0.2)), url('../../../../assets/Triangify.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
   .modal-head{
     display: flex;
     justify-content: space-between;
@@ -27,6 +32,7 @@
     padding: 10px;
     height: 50px;
     border-bottom:0.2px solid rgb(211, 208, 208) ;
+ 
     img{
       width: 200px;
       height: 150px;
@@ -50,15 +56,20 @@
     border-radius: 10px;
     background: rgb(235, 234, 234);
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content:center;
+    text-align: center;
+
     // justify-content: center;
     gap: 35px;
-    flex-direction: column;
+    // flex-direction: column;
     .upload-content{
       position: relative;
       top: 20px;
       width: 80%;
       height: 45px;
+    
       .file{
         position: absolute;
         height: 100%;
@@ -66,20 +77,31 @@
         border-radius: 5px;
         opacity: 0;
         cursor: pointer;
+        background-color: pink;
+        bottom:-160px;
+        left:60px;
+        z-index: 1;
+        //  z-index: 2;
+
         
+                
       }
       .btnUpload{
-        cursor: pointer;
+       
         height: 100%;
         width: 100%;
         text-align: center;
-        background: var(--color-btn2);
+        background:transparent;
+       position: relative;
         // cursor: pointer;
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        color: white;
+        justify-content:center;
+       
+        text-align: center;
+        font-size: 16px;
+        color: var(--color-dark-green);
+        font-weight: 600;
       }
       
     }
@@ -103,6 +125,11 @@
         width: 60px;
         height: 60px;
         color: rgb(163, 161, 161);
+        
+        align-self: center;
+        &:hover{
+          color: black;
+        }
       }
     }
   }
@@ -119,6 +146,14 @@
       gap:10px;
       flex-direction: column;
 
+      .title{
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 0;  
+        color: var(--color-dark-green);
+        font-weight: 600;    
+      }
+
       // type of donation
       .choose-type{
         display: flex;
@@ -130,27 +165,82 @@
         font-family: var(--font-family);
         border-bottom: 0.2px solid white;
         height: 50px;
-        .title{
-          font-size: 14px;
-          text-align: center;
-          margin-bottom: 0;        
-        }
-        span{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 5px;
+      
+        // span{
+        //   display: flex;
+        //   justify-content: center;
+        //   align-items: center;
+        //   gap: 5px;
           
-          input{
-            width: 15px;
-            height: 15px;
-          }
-          .price{
-            width: 35px;
-            padding: 5px;
-            height: 20px;
-          }
+        //   input{
+        //     width: 15px;
+        //     height: 15px;
+        //   }
+       
+        // }
+        .btn-radio-group {
+          // margin: 1rem 4rem;
+
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+
+         .price{
+          width:80px;
+          padding: 5px;
+          margin-inline: 5px;
+          height: 20px;
+          font-size: 1rem;
         }
+        }
+        
+        input[type="radio"] {
+          display: none;
+        }
+        
+        label {
+          cursor: pointer;
+          position: relative;
+          font-size: 1rem;
+          font-weight: 400;
+        }
+        
+        label::before {
+          content: "";
+          position: absolute;
+          width: 17px;
+          height: 17px;
+          background-color: transparent;
+          border: 2px solid #fff;
+          border-radius: 50%;
+          top: 50%;
+          left: -1.2rem;
+          transform: translateY(-50%);
+          transition: border-color 400ms ease;
+        }
+        
+        label::after {
+          content: "";
+          position: absolute;
+          width: 17px;
+          height: 17px;
+          background-color: var(--color-light-green);
+          border: 2px solid var(--color-light-green);
+          border-radius: 50%;
+          top: 50%;
+          left: -1.2rem;
+          transform: translateY(-50%) scale(0);
+          transition: transform 400ms ease;
+        }
+        
+        input[type="radio"]:checked + label::before {
+          border-color: var(--color-light-green);
+        }
+        
+        input[type="radio"]:checked + label::after {
+          transform: translateY(-50%) scale(0.55);
+        }
+        
       }
       
       //Group of Categories
@@ -203,10 +293,19 @@
     }
     button{
       height: 35px;
-      background-color: var(--color-btn2);
+      background-color: var(--color-dark-green);
+      color: white;
+      font-weight: 600;
+      border-radius: 35px;
       width: 95%;
       margin: auto;
       margin-bottom: -5px;
+      transition: 400ms all ease;
+
+      &:hover{
+        background-color: var(--color-light-green);
+        color: var(--color-dark-green);
+      }
     }
   }
 }
@@ -215,7 +314,7 @@
 
 /* The Close Button */
 .close {
-  color: rgb(99, 99, 99);
+  color: rgb(214, 203, 203);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -223,8 +322,9 @@
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: var(--color-yellow);
   text-decoration: none;
+  transform: scale(1.03);
   cursor: pointer;
 }
 
