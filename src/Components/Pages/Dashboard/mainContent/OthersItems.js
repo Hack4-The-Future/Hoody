@@ -166,6 +166,7 @@ export const OthersItems = ({ uid }) => {
                     {/* 1 */}
 
                     {Items.map((item) => {
+                     
                         return (
                             <div className="item-card">
                                 <div className='item-img'>

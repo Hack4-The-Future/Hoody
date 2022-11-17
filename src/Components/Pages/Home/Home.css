@@ -405,7 +405,7 @@ background: linear-gradient(60deg, rgba(249,222,172,1) 36%, rgba(244,162,97,1) 5
        height: 80vh;
     }
     .home-content{
-        top: 25rem;
+        top: 22rem;
     }
     #content{
         width: 100%;
@@ -442,4 +442,11 @@ background: linear-gradient(60deg, rgba(249,222,172,1) 36%, rgba(244,162,97,1) 5
 }
 
 
+}
+
+@media screen and (max-width:375px){
+    .home-content{
+        top: 1rem;
+
+    }
 }

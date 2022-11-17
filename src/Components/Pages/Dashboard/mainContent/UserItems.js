@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { getItemsById } from '../../../../DB/getItems'
 import { Photos } from './Photos'
 import { UpdateModal } from '../Modals/updateModal'
-
+import {IoCloseSharp} from 'react-icons/io5'
 export const UserItems = ({ uid, items, setItems, openItems, setOpenItems, setUpdateItem }) => {
   const [updateModalOpen, setUpdateModalOpen] = useState(false)
   const [turnLocation, setTurnLocation] = useState(false)
@@ -49,7 +49,9 @@ export const UserItems = ({ uid, items, setItems, openItems, setOpenItems, setUp
     <div className='main-item'>
 
       <div className='user-items'>
-        <span className="close" onClick={closeModal}>&times;</span>
+        <span className="close" onClick={closeModal}>
+        <IoCloseSharp className='i'></IoCloseSharp>
+        </span>
 
         {
           items && items.map((item) => {

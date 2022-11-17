@@ -10,7 +10,7 @@ export const Items = [
     name:"name",
     price:"free",
     distance:"500m",
-    message:"Chat",
+    message:"",
  
 
 },
@@ -19,7 +19,7 @@ export const Items = [
     name:"name",
     price:"free",
     distance:"500m",
-    message:"Chat",
+    message:"",
 
 
 },
@@ -28,7 +28,7 @@ export const Items = [
     name:"name",
     price:"free",
     distance:"500m",
-    message:"Chat",
+    message:"",
 
 
 },
@@ -37,7 +37,24 @@ export const Items = [
     name:"name",
     price:"free",
     distance:"500m",
-    message:"Chat",
+    message:"",
+
+},
+{
+    src:img3,
+    name:"name",
+    price:"free",
+    distance:"500m",
+    message:"",
+
+
+},
+{
+    src:img4,
+    name:"name",
+    price:"free",
+    distance:"500m",
+    message:"",
 
 }
 

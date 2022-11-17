@@ -237,9 +237,23 @@
                     display: flex;
                     gap: 10px;
                     color: lightgray;
+                    align-items: center;
+                   
+                  
                     .i{
                         cursor: pointer;
+                        transition: 400ms all ease;
+                        &:hover{
+                            transform: scale(1.08);
+                        }
                     }
+                    span{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                     
+                    }
+
                 }
 
                 
@@ -285,7 +299,7 @@
                     &.owner{
                         flex-direction: row-reverse;
                         p{
-                            background-color: #8da4f1;
+                            background-color: rgb(199, 92, 59);
                             color: white;
                             border-radius: 10px 0px 10px 10px;
                         }
@@ -295,34 +309,46 @@
 
             .input{
                 height: 50px;
-                background-color: rgb(168, 168, 168);
+                background-color: rgb(211, 208, 208);
                 padding: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 color: white;
+
+
                 &::placeholder{
                     color: lightgrey;
                 }
+               
                 input{
                     width: 80%;
                     border: none;
                     outline: none;
                     background-color: transparent;
+                  color: black;
+                  font-weight: 400;
+                  font-size: 18px;
+                  
                 }
                 .send{
                     display: flex;
                     gap: 10px;
-                    color: #ffffff;
+                    color: var(--color-dark-green);
                     font-size: 18px;
                     font-weight: bold;
+                    transition: 400ms all ease;
                     .i{
                         cursor: pointer;
+                        transition: 400ms all ease;
                     }
                     .twit{
-                        color: #5d5b8b;
+                        color: var(--color-dark-green);
+                        transition: 400ms all ease;
                         &:hover{
-                            transform: scale(1.2);
+
+                            transform: scale(1.2) rotate(-30deg);
+
                         }
                     }
                     label{

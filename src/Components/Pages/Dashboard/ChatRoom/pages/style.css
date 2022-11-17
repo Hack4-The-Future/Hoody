@@ -230,9 +230,19 @@
   display: flex;
   gap: 10px;
   color: lightgray;
+  align-items: center;
 }
 .home-chat .container-chat .chat .chatInfo .ChatIcon .i {
   cursor: pointer;
+  transition: 400ms all ease;
+}
+.home-chat .container-chat .chat .chatInfo .ChatIcon .i:hover {
+  transform: scale(1.08);
+}
+.home-chat .container-chat .chat .chatInfo .ChatIcon span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .home-chat .container-chat .chat .messages {
   background-color: rgb(253, 255, 253);
@@ -279,13 +289,13 @@
   flex-direction: row-reverse;
 }
 .home-chat .container-chat .chat .messages .message.owner p {
-  background-color: #8da4f1;
+  background-color: rgb(199, 92, 59);
   color: white;
   border-radius: 10px 0px 10px 10px;
 }
 .home-chat .container-chat .chat .input {
   height: 50px;
-  background-color: rgb(168, 168, 168);
+  background-color: rgb(211, 208, 208);
   padding: 10px;
   display: flex;
   align-items: center;
@@ -306,22 +316,28 @@
   border: none;
   outline: none;
   background-color: transparent;
+  color: black;
+  font-weight: 400;
+  font-size: 18px;
 }
 .home-chat .container-chat .chat .input .send {
   display: flex;
   gap: 10px;
-  color: #ffffff;
+  color: var(--color-dark-green);
   font-size: 18px;
   font-weight: bold;
+  transition: 400ms all ease;
 }
 .home-chat .container-chat .chat .input .send .i {
   cursor: pointer;
+  transition: 400ms all ease;
 }
 .home-chat .container-chat .chat .input .send .twit {
-  color: #5d5b8b;
+  color: var(--color-dark-green);
+  transition: 400ms all ease;
 }
 .home-chat .container-chat .chat .input .send .twit:hover {
-  transform: scale(1.2);
+  transform: scale(1.2) rotate(-30deg);
 }
 .home-chat .container-chat .chat .input .send label:hover {
   transform: scale(1.2);

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 
 import { UilEllipsisH } from '@iconscout/react-unicons'
 import { UilUserPlus } from '@iconscout/react-unicons'
+import {IoCloseSharp} from 'react-icons/io5'
 import { Messages } from './Messages'
 import { Input } from './Input'
 import { ChatContext } from '../context/chatContext'
@@ -22,7 +23,10 @@ export const Chat = ({openModalChat,  setOpenModalChat}) => {
             <div className="ChatIcon">
                 <UilUserPlus className='i'/>
                 <UilEllipsisH className='i'/>
-                <span className="close" onClick={closeModal}>&times;</span>
+                <span className="close" onClick={closeModal}>
+                <IoCloseSharp className='i'></IoCloseSharp>
+                
+                </span>
             </div>
         </div>
         {data && <Messages/>}

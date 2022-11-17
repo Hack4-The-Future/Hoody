@@ -32,6 +32,7 @@ background-position: right bottom;
 .triangle{
     position: absolute;
     top: 35%;
+    z-index: -1;
     font-size: 6rem;
     color: var(--color-font-orange2);
     animation: spin 2s linear forwards infinite;
@@ -498,5 +499,62 @@ transform: scale(1.2);
     }
     .section-left{
         height: 40vh;
+    }
+}
+
+
+@media screen and (max-width:750px) {
+    .BigTitle,h1{
+        font-size: 35px;
+    }
+    .learn {
+        right:-10%;
+    }
+    .Founders-boxes{
+        gap: 1rem;
+    }
+    .Founder-box {
+        margin:3rem .4rem;
+    }
+    .circle{
+        width: 120px;
+        height: 120px;
+    
+    
+    }
+    .circle h3{
+        font-size: 18px;
+    }
+
+
+    .circle-content{
+        text-align: center;
+    }
+        .video,
+.background-video {
+  
+    height: 28vh;
+}
+}
+
+@media screen and (max-width:650px) {
+    .about-sections1{
+      width: 100%;
+    }
+    .about-content{
+        left: 5px;
+        width: 100%;
+        font-size: 14px;
+    }
+    .learn {
+        right:0;
+    }
+   
+    .Founders-boxes{
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    .Founder-box {
+        margin:3rem .1rem;
     }
 }
