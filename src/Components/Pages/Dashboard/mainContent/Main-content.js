@@ -8,7 +8,7 @@ import { useEffect , useState } from 'react'
 import { useUser } from '../../../../DB/useUser'
 
 
-export const MainContent = ({coordination  , setOpenModalChat}) => {
+export const MainContent = ({coordination  , setOpenModalChat ,setOpenMap}) => {
     const { user: { uid } } = useUser()
     
     
@@ -17,7 +17,7 @@ export const MainContent = ({coordination  , setOpenModalChat}) => {
 
     return (
         <div className='main-profileContent'>
-            <OthersItems uid={uid} coordination={coordination} setOpenModalChat={setOpenModalChat}/>
+            <OthersItems uid={uid} coordination={coordination} setOpenModalChat={setOpenModalChat} setOpenMap={setOpenMap}/>
             {/* {items ? <UserItems id={id} items={items} /> : ""} */}
             {/* <UserItems uid={uid} items={items} setItems = {setItems} /> */}
         </div>

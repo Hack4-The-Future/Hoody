@@ -8,6 +8,7 @@ import { userContext } from '../../../../Context/userContext'
 import haversine from 'haversine-distance'
 import ChatBox from '../../ChatBox/ChatBox';
 import { Items } from './Items';
+import { UilMap } from '@iconscout/react-unicons'
 
 import io from "socket.io-client";
 import { getItemsByCategory } from '../../../../DB/getItemsByCategory'
@@ -19,22 +20,17 @@ const socket = io.connect("http://localhost:3001/");
 
 
 
-export const OthersItems = ({ uid ,setOpenModalChat }) => {
+export const OthersItems = ({ uid ,setOpenModalChat , setOpenMap }) => {
     const { user } = useContext(userContext);
     const [category, setICategoty] = useState(null)
     const [items, setItems] = useState(null)
     const [coordination, setCoordination] = useState({ latitude: null, longitude: null })
-    const [openMap, setOpenMap] = useState(false)
     const { db } = useContext(DbContext)
     const [room, setRoom] = useState('');
     const [showChat, setShowChat] = useState(false);
     const [username, setUsername] = useState("");
     const style = { border: 0 }
-    const src = 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12109.26968137635!2d22.9416259!3d40.64493285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sgr!4v1666177116930!5m2!1sen!2sgr'
-    const width = '100%'
-    const height = '100%'
-    const load = 'lazy'
-    const referrerPolicy = "no-referrer-when-downgrade"
+    
     const joinChat = () => {
         if (user && room !== '') {
             console.log("a user exist")
@@ -91,7 +87,8 @@ export const OthersItems = ({ uid ,setOpenModalChat }) => {
             });
 
             console.log("Current category ========>", dst.filter((prof) => prof.uid !== uid));
-            setItems(dst.filter((prof) => prof.uid !== uid).filter((dt) => 5.2 > Number((haversine(currentLocation, dt.coordination) / 1000).toFixed(2))))
+            setItems(dst.filter((prof) => prof.uid !== uid).filter((dt) => 800000.2 > Number((haversine(currentLocation, dt.coordination) / 1000).toFixed(2))))
+            
             // console.log(items)
         });
 
@@ -123,17 +120,18 @@ export const OthersItems = ({ uid ,setOpenModalChat }) => {
                     <div className='your-location'>
                         <i className="fas fa-location"></i>
                     </div>
-                    <div className='flash-down'>
+                    {/* <div className='flash-down'>
                         <i className="uil uil-angle-down"></i>
-                    </div>
-                    <div className="search-box-loc">
-                        <input type="text" placeholder='Search location ...' />
+                    </div> */}
+                    {/* <div className="search-box-loc">
+                        <input type="text" placeholder='Search location ...' /> */}
                         {/* style="font-family:Arial, FontAwesome" */}
                         {/* placeholder="&#xF002;" */}
-                        <span htmlFor="" className="search-icon">
+                        {/* <span htmlFor="" className="search-icon">
                             <i className="fas fa-search"></i>
                         </span>
-                    </div>
+                    </div> */}
+                    <UilMap onClick={handleMap}/>
                 </div>
                 {/* {!showChat ? (
                 <div className="joinChatContainer">
@@ -174,7 +172,7 @@ export const OthersItems = ({ uid ,setOpenModalChat }) => {
                 <div className='items-box'>
                     {items && items.map((item, i) => {
                         return (
-                            <CardItems item={item} key={i} setOpenModalChat={setOpenModalChat} />
+                            <CardItems item={item} key={i} setOpenModalChat={setOpenModalChat} coordination={coordination} />
                         );
                     })}
                 </div>

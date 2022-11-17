@@ -7,7 +7,133 @@
   display: grid;
   grid-template-columns: 280px 1fr;
 
+<<<<<<< HEAD
   overflow: hidden;
+=======
+    /*-------------main*/ 
+    .main-profile{
+        height: 100%;
+        grid-column: 2;        
+        margin-right: 3px;
+        margin-left: 1px;
+        background-color: white;
+        // box-shadow: 2px 2px 6px rgb(101, 104, 104);
+        
+        /*----------header*/
+        // .header-profile{
+        //     height: 4rem;
+        //     background: var(--color-white);
+        //     padding: 0 1rem;
+        //     .header-content{
+        //         display: flex;
+        //         align-items: center;
+        //         justify-content: space-between;
+        //         .logo{
+        //             height: 100%;
+        //             img{
+        //                 width: 200px;
+        //                 height: 4rem;
+        //                 object-fit: cover;
+        //             }
+        //         }
+        //         .user-info{
+        //             display: flex;
+        //             align-items: center;
+        //             justify-content: space-between;
+        //             .pic {
+        //                 img{
+        //                     border: 1px solid #eeeeee;
+        //                     width: 50px;
+        //                     height: 50px;
+        //                     border-radius: 50%;
+        //                 }
+        //             }
+            
+        //             .down{
+            
+        //                 i{
+        //                     font-size: 25px;
+        //                     // color: rgb(35, 37, 37);
+        //                     font-weight: 100;
+        //                     color: rgb(101, 104, 104);
+        //                     cursor: pointer;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        /*------------- main content*/
+        .main-profileContent{
+            background-color: var(--color-white);
+            position: relative;
+            // margin-top: 2px;
+            // padding:5px 1rem ;
+            padding-right: 2px;
+            min-height: calc(100vh - 4.2rem);
+            height: 100%;
+            display:block;
+            overflow: hidden;
+            column-gap: 5px;
+            .others-items{
+                // background-color: rgba(184, 184, 184, 0.399);
+            
+                min-height: calc(100vh - .2rem);
+                box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.585);
+              
+               .map{
+                border-top: 1px solid #dddddd;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                height: 100vh;
+                // overflow-y: scroll;
+                
+                .location{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid #dddddd;
+                    padding: 5px;
+                    width: 100%;
+                    
+                   
+                .search-box-loc{
+                    position: relative;
+                    height: 40px;
+                    width: 30%;
+                    min-width: 170px;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+                    border-radius: 26px;
+                    input{
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 26px;
+                        border: none;
+                        outline: none;
+                        background: #feffff;
+                        padding-left: 15px;
+                        font-size: 14px;
+                    }
+                    .search-icon{
+                    cursor: pointer;
+                      border: 2px solid rgb(216, 210, 210);
+                      position: absolute;
+                      top: 2px;
+                      right: 3px;
+                      width: 37px;
+                      height: 93%;
+                      text-align: center;
+                      line-height: 35px;
+                      color: var(--color-btn2);
+                      font-size: 16px;
+                      border-radius: 50%;
+                    }
+                }
+                .fa-location{
+                    color: black;
+                }
+>>>>>>> e2768e5ecd7e9f2ea11bb32f28e43f605b094790
 
   /*-------------main*/
   .main-profile {
