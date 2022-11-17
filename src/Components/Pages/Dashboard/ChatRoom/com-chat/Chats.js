@@ -4,11 +4,11 @@ import { ChatContext } from '../context/chatContext'
 import { userContext } from '../../../../../Context/userContext'
 import { DbContext } from '../../../../../Context/DBContext'
 
-export const Chats = ({uid}) => {
+export const Chats = ({ uid }) => {
   const [chats, setChats] = useState([])
-  const {dispatch} = useContext(ChatContext)
+  const { dispatch } = useContext(ChatContext)
   const { db } = useContext(DbContext)
-
+  console.log('start to showing')
   useEffect(() => {
     const getChats = async () => {
       const unsub = await onSnapshot(doc(db, 'userChats', uid), (doc) => {
@@ -19,12 +19,12 @@ export const Chats = ({uid}) => {
       }
     }
     uid && getChats()
-
+    Object.entries(chats).map(chat => console.log('chatsssss---->', chat[1]))
   }, [uid])
 
   //when user want to start to chat 
-  const handleSelect = async (u)=>{
-    dispatch({type:"CHANGE_USER", payload:u } )
+  const handleSelect = async (u) => {
+    dispatch({ type: "CHANGE_USER", payload: u })
     console.log(u)
   }
 
@@ -32,12 +32,12 @@ export const Chats = ({uid}) => {
 
   return (
     <div className='chats'>
-      {chats && Object.entries(chats).sort((a,b)=>b[1].date - b[1].date).map((chat) => (
-        <div className="userChat" key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
+      {chats && Object.entries(chats).sort((a, b) => b[1].date - b[1].date).map((chat) => (
+        <div className="userChat" key={chat[0]} onClick={() => handleSelect(chat[1].userInfo)}>
           <img src={chat[1].userInfo.photoURL} alt="" />
           <div className="userChatInfo">
             <span>{chat[1].userInfo.displayName}</span>
-            {chat[1] &&<p>{chat[1].lastMessage?.text.slice(0,20)}</p>}
+            {chat[1] && <p>{chat[1].lastMessage?.text.slice(0, 20)}</p>}
           </div>
         </div>
       )
