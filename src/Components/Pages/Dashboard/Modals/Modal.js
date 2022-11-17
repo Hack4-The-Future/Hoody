@@ -179,13 +179,13 @@ export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setIt
 
                   {/* choose the type of donating or selling */}
                   <div className='choose-type' >
-                    <span><h5 className='title'>Are you going to? </h5></span>
+                    <span><h5 className='title'>Preference</h5></span>
                     <div class="btn-radio-group">
                       <input type="radio" id='sell' value={type} name='type' onChange={({ target }) => { setType(target.value) }} checked/>
                       <label htmlFor="sell">Sell</label>
 
                       {/* by choosing selling radio display the price   */}
-                      <input value={price} className='price' type="number" onChange={({ target }) => { setPrice(target.value) }} />
+                      <input value={price} className='price' type="number" onChange={({ target }) => { setPrice(target.value) }}  min="1" max="999"/><span>&euro;</span>
                     </div>
                     <div class="btn-radio-group">
                       <input type="radio" id='donate' value={type} name='type' onChange={({ target }) => { setType(target.value) }} />
@@ -200,6 +200,7 @@ export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setIt
 
                     <label className='title' for="category">what is kind of?</label>
                     <select id="category" value={category} onChange={({ target }) => { setCategory(target.value) }} required>
+                    <option value="Select Category" disabled selected >Select Category</option>
                       <option value="Costume">Costume</option>
                       <option value="Sports">Sports</option>
                       <option value="Appliance Home">Appliance Home</option>
@@ -207,7 +208,7 @@ export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setIt
                       <option value="Electronic">Electronic</option>
                       <option value="Gaming">Gaming</option>
                       <option value="Discount">Discount</option>
-                      <option value="Select Category" selected>Select Category</option>
+                     
                     </select>
                   </div>
 

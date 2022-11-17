@@ -116,11 +116,11 @@
         overflow: hidden;
         margin: 7% auto;
         @include tablet{
-            width: 90%;
+            width: 100%;
         }
         .sidebar-chat{
             flex: 1;
-            background: linear-gradient(120deg, rgba(255, 254, 254, 0.167), rgba(18, 17, 17, 0.2)), url('../../../../../assets/Triangify.png');
+            background: linear-gradient(60deg, rgba(34, 32, 32, 0.167), rgba(18, 17, 17, 0.2)), url('../../../../../assets/Triangify.png');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -128,12 +128,16 @@
             .navbar-chat{
                 display: flex;
                 align-items: center;
-                background-color: #1a1a1ba5;
+                background-color: #00000059;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.54);
+               
+                flex-direction: column;
                 backdrop-filter: blur(8px);
-                height: 50px;
+                height:fit-content;
                 padding: 10px;
                 justify-content: space-between;
                 color: aliceblue;
+                align-items:flex-start;
                 .logo{
                     font-weight: bold;
                     @include mobile{
@@ -147,11 +151,12 @@
                     display: flex;
                     align-items: center;
                     gap:10px;
-                    
+                    margin: 10px;
+                    font-weight: 600px;
                     img{
                         background-color: #ddddf7;
                         height: 24px;
-                        width: 24px;
+                        width: 25px;
                         border-radius: 50%;
                         object-fit: cover;
                     }
@@ -198,7 +203,7 @@
                 cursor: pointer;
                 color: white;
                 &:hover{
-                    background-color: rgba(153, 148, 148, 0.458);
+                    background-color: rgba(223, 214, 214, 0.458);
                     backdrop-filter: blur(8px);
                     color: var(--color-dark-green);
                 }
@@ -234,6 +239,26 @@
                 span{
                     color: white;
                     font-weight: bold;
+
+                    
+                }
+                .otherUser{
+                    color: rgb(228, 228, 228);
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    
+                    &::after{
+                        content: '';
+                        position: absolute;
+                     right: -18px;
+                        width: 15px;
+                        height: 15px;
+                        background-color: rgb(89, 148, 0);
+                        border-radius: 50%;
+                        margin-left:5px;
+
+                    }
                 }
                 .ChatIcon{
                     display: flex;
@@ -339,7 +364,7 @@
                     background-color: transparent;
                   color: black;
                   font-weight: 400;
-                  font-size: 18px;
+                  font-size: 14px;
                   
                 }
                 .send{
@@ -372,3 +397,59 @@
         }
     }
 }
+
+@media screen and (max-width:450px){
+
+    .container-chat{
+    .sidebar-chat{
+        width: 80px;
+
+     
+        .userChat{
+
+           
+            .userChatInfo{
+
+              
+                 
+                span{
+                    font-size: .7rem;
+                    display: none;
+                }
+                p{
+                    font-size:11px;
+                    display: none;
+                }
+            }
+        }
+
+        
+
+    }
+    .chat{
+        .input{
+            font-size: 10px;
+            input{
+                font-size: 12px;
+            }
+            
+        }
+    }
+
+}
+
+.home-chat .container-chat .sidebar-chat .navbar-chat .user img {
+    background-color: #ddddf7;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+.home-chat .container-chat .sidebar-chat .navbar-chat .user span{
+    display: none;
+}
+
+
+}
+

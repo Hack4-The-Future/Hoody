@@ -7,6 +7,8 @@ import { Messages } from './Messages'
 import { Input } from './Input'
 import { ChatContext } from '../context/chatContext'
 import { userContext } from '../../../../../Context/userContext'
+
+
 export const Chat = ({openModalChat,  setOpenModalChat}) => {
   const {data} = useContext(ChatContext)
   const {user} = useContext(userContext)
@@ -19,7 +21,7 @@ export const Chat = ({openModalChat,  setOpenModalChat}) => {
   return (
     <div className='chat'>
         <div className="chatInfo">
-            <span>{data.user.displayName}</span>
+            <span className='otherUser'>{data.user.displayName}</span>
             <div className="ChatIcon">
                 <UilUserPlus className='i'/>
                 <UilEllipsisH className='i'/>

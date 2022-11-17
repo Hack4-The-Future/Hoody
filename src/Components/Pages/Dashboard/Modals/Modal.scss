@@ -186,7 +186,7 @@
          align-items: center;
 
          .price{
-          width:80px;
+          width:60px;
           padding: 5px;
           margin-inline: 5px;
           height: 20px;
@@ -243,6 +243,40 @@
         
       }
       
+
+
+      input[type="checkbox"] {
+        appearance: none;
+        background-color: #fff;
+        margin: 0;
+        font: inherit;
+        color: var(--color-light-green);
+        width: 1.15em;
+        height: 1.15em;
+        border: 0.1em solid var(--color-light-green);
+        border-radius: 0.15em;
+        transform: translateY(-0.075em);
+        display: grid;
+  place-content: center;
+      }
+
+      input[type="checkbox"]::before {
+        content: "";
+        width: 0.65em;
+        height: 0.65em;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--form-control-color);
+      }
+
+      input[type="checkbox"]:checked::before {
+        transform: scale(1);
+     background-color: var(--color-light-green);
+      }
+      
+      .form-control + .form-control {
+        margin-top: 1em;
+      }
       //Group of Categories
       .categories , .current-location{
         display: flex;

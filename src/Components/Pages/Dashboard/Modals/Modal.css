@@ -154,7 +154,7 @@
   align-items: center;
 }
 .content-form .info .get-info .choose-type .btn-radio-group .price {
-  width: 80px;
+  width: 60px;
   padding: 5px;
   margin-inline: 5px;
   height: 20px;
@@ -200,6 +200,37 @@
 }
 .content-form .info .get-info .choose-type input[type=radio]:checked + label::after {
   transform: translateY(-50%) scale(0.55);
+}
+.content-form .info .get-info input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: var(--color-light-green);
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.1em solid var(--color-light-green);
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+.content-form .info .get-info input[type=checkbox]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+}
+.content-form .info .get-info input[type=checkbox]:checked::before {
+  transform: scale(1);
+  background-color: var(--color-light-green);
+}
+.content-form .info .get-info .form-control + .form-control {
+  margin-top: 1em;
 }
 .content-form .info .get-info .categories, .content-form .info .get-info .current-location {
   display: flex;
