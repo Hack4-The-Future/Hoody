@@ -49,8 +49,10 @@ export const UserItems = ({ uid, items, setItems, openItems, setOpenItems, setUp
     <div className='main-item'>
 
       <div className='user-items'>
+      <h5>My items</h5>
         <span className="close" onClick={closeModal}>
         <IoCloseSharp className='i'></IoCloseSharp>
+       
         </span>
 
         {

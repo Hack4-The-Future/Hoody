@@ -78,7 +78,7 @@
   left: 0;
   top: 0;
   overflow: auto; /* Enable scroll if needed */
-  height: 100%; /* Full height */
+  height: 100%;
   width: 100%; /* Full width */
   z-index: 1; /* Sit on top */
   background-color: rgb(0, 0, 0); /* Fallback color */
@@ -192,7 +192,10 @@
   color: white;
 }
 .home-chat .container-chat .sidebar-chat .userChat:hover {
-  background-color: #2f2d52;
+  background-color: rgba(153, 148, 148, 0.458);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  color: var(--color-dark-green);
 }
 .home-chat .container-chat .sidebar-chat .userChat img {
   width: 50px;
@@ -291,7 +294,11 @@
 .home-chat .container-chat .chat .messages .message.owner p {
   background-color: rgb(199, 92, 59);
   color: white;
-  border-radius: 10px 0px 10px 10px;
+  border-radius: 30px 30px 0px 30px;
+}
+.home-chat .container-chat .chat .messages .message.other p {
+  background-color: var(--color-light-green);
+  border-radius: 30px 30px 30px 0px;
 }
 .home-chat .container-chat .chat .input {
   height: 50px;

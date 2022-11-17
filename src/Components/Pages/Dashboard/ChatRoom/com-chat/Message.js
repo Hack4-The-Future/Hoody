@@ -12,7 +12,7 @@ export const Message = ({ms}) => {
   
   console.log('mssssssssss', ms )
   return (
-    <div ref ={ref} className={`message ${ms.senderId===user.uid ? "owner" : ''}`}>
+    <div ref ={ref} className={`message ${ms.senderId===user.uid ? "owner" : 'other'}`}>
       <div className="messageInfo">
         <img src={ms.senderId === user.uid ? user.photoURL : data.user.photoURL} alt="" />
         <span>just now</span>

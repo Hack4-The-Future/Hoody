@@ -15,7 +15,7 @@ import { getDownloadURL, ref, updateMetadata, uploadBytes, uploadBytesResumable 
 import { getUserById } from '../../../../DB/DoesUserExist'
 import { setPersistence } from 'firebase/auth'
 import { getItemsById } from '../../../../DB/getItems'
-
+import {IoCloseOutline} from 'react-icons/io5'
 export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setItems ,turnLocation}) => {
 
   const { db, storage } = useContext(DbContext)
@@ -148,7 +148,10 @@ export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setIt
 
         <div className='modal-head'>
           <span className='logo'>Hoody</span>
-          <span className="close" onClick={closeModal}>&times;</span>
+          <span className="close" onClick={closeModal}>
+          <IoCloseOutline></IoCloseOutline>
+          
+          </span>
         </div>
         {progress && <progress id="file" value={progress} max="100"></progress>}
         <div id="upload-image">
@@ -160,7 +163,7 @@ export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setIt
 
                 <div className='upload-content'>
                   <input className="file" type="file" accept='image/*' files={image} onChange={({ target }) => { setImage(target.files[0]) }} />
-                  <span className='btnUpload'><UilPlus />Upload</span>
+                  <span className='btnUpload'>Upload Your item picture</span>
                 </div>
 
                 <div className='preview'>
@@ -175,21 +178,21 @@ export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setIt
                 <div className='get-info'>
 
                   {/* choose the type of donating or selling */}
-                  <div className='choose-type'>
+                  <div className='choose-type' >
                     <span><h5 className='title'>Are you going to? </h5></span>
-                    <span>
-                      <input type="radio" id='sell' value={type} name='type' onChange={({ target }) => { setType(target.value) }} />
+                    <div class="btn-radio-group">
+                      <input type="radio" id='sell' value={type} name='type' onChange={({ target }) => { setType(target.value) }} checked/>
                       <label htmlFor="sell">Sell</label>
 
                       {/* by choosing selling radio display the price   */}
                       <input value={price} className='price' type="number" onChange={({ target }) => { setPrice(target.value) }} />
-                    </span>
-                    <span>
+                    </div>
+                    <div class="btn-radio-group">
                       <input type="radio" id='donate' value={type} name='type' onChange={({ target }) => { setType(target.value) }} />
                       <label htmlFor="donate">Donate</label>
 
 
-                    </span>
+                    </div>
                   </div>
 
                   {/* choose your category of your items */}

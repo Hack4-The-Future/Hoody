@@ -116,9 +116,11 @@ export const Input = () => {
     <div className='input'>
       <input type="text" placeholder='Type Message' value={text} onChange={({ target }) => { setText(target.value) }} />
       <div className='send'>
-        <UilMessage className="twit i" onClick={handleSend}   onKeyPress={(event) => {
+        <UilMessage className="twit i" onClick={handleSend} 
+         onKeyPress={(event) => {
           event.key === "Enter" && handleSend();
-        }}/>
+        }}
+        />
         <input type="file" style={{ display: "none" }} id="file" onChange={({ target }) => { setImg(target.files[0]) }} />
         <label htmlFor="file" className='i'><UilImagePlus /></label>
       </div>
