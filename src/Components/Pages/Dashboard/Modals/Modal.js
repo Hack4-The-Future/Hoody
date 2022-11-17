@@ -196,7 +196,7 @@ export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setIt
                   <div className='categories'>
 
                     <label className='title' for="category">what is kind of?</label>
-                    <select id="category" value={category} onChange={({ target }) => { setCategory(target.value) }}>
+                    <select id="category" value={category} onChange={({ target }) => { setCategory(target.value) }} required>
                       <option value="Costume">Costume</option>
                       <option value="Sports">Sports</option>
                       <option value="Appliance Home">Appliance Home</option>
@@ -215,8 +215,8 @@ export const Modal = ({ open, setOpenModal, setTurnLocation, coordination, setIt
                   </div>
 
                   <div className='explain'>
-                    <h5 className="title">please explain your stock!</h5>
-                    <textarea name="" id="" cols="30" rows="8" value={explain} onChange={({ target }) => { setExplain(target.value) }}></textarea>
+                    {/* <h5 className="title">For more information about your item</h5> */}
+                    <textarea name="" id="" cols="30" rows="8" value={explain} onChange={({ target }) => { setExplain(target.value) }} placeholder="more information about your item"></textarea>
                   </div>
 
                 </div>
