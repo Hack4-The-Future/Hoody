@@ -6,6 +6,8 @@ import { DbContext } from '../../../../Context/DBContext'
 import { userContext } from '../../../../Context/userContext'
 import { v4 as uuid } from 'uuid'
 import { ChatContext } from '../ChatRoom/context/chatContext'
+import haversine from 'haversine-distance'
+
 
 
 export const CardItems = ({ item, setOpenModalChat }) => {
@@ -13,7 +15,16 @@ export const CardItems = ({ item, setOpenModalChat }) => {
     const { db } = useContext(DbContext)
     const [userSearch, setUserSearch] = useState({})
     const { dispatch } = useContext(ChatContext)
-
+    console.log("Current category 2 ========>", item)
+    const [coordination , setCoordination] = useState({})
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+    function showPosition(position) {
+        setCoordination({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+    }
     const handleDirect = async (e) => {
         //check whether the group(chats in firestore) exists, if not create
         console.log('searching', userSearch,)
@@ -94,7 +105,7 @@ export const CardItems = ({ item, setOpenModalChat }) => {
                 <h4>{item.owner}</h4>
                 <h5>{item.price === 0 ? 'Free' : item.price}</h5>
                 <p>
-                    <i className="uil uil-map-marker"></i>{item.distance}
+                    <i className="uil uil-map-marker"></i>{ Number((haversine(coordination, item.coordination) / 1000).toFixed(2))} 
                 </p>
                 <p onClick={searchOwner} className='direct' id={item.uid}>
                     Got to direct <i className="fa-regular fa-comment-dots"></i>

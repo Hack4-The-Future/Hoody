@@ -22,7 +22,7 @@ export const Iframe = ({ openMap, setOpenMap }) => {
     <div className='iframe'>
         <span className="close" onClick={closeModal}></span>
         <div className='map-content'>
-          <iframe src={src} width={width} height={height} style={style} allowFullScreen={allowfullscreen} loading={load} referrerPolicy={{referrerPolicy}}></iframe>
+          <iframe src={src} width={width} height={height} style={{style}} allowFullScreen={allowfullscreen} loading={load} referrerPolicy={referrerPolicy}></iframe>
 
         </div>
       </div>

@@ -87,7 +87,8 @@ export const OthersItems = ({ uid ,setOpenModalChat , setOpenMap }) => {
             });
 
             console.log("Current category ========>", dst.filter((prof) => prof.uid !== uid));
-            setItems(dst.filter((prof) => prof.uid !== uid).filter((dt) => 5.2 > Number((haversine(currentLocation, dt.coordination) / 1000).toFixed(2))))
+            setItems(dst.filter((prof) => prof.uid !== uid).filter((dt) => 800000.2 > Number((haversine(currentLocation, dt.coordination) / 1000).toFixed(2))))
+            
             // console.log(items)
         });
 
@@ -171,7 +172,7 @@ export const OthersItems = ({ uid ,setOpenModalChat , setOpenMap }) => {
                 <div className='items-box'>
                     {items && items.map((item, i) => {
                         return (
-                            <CardItems item={item} key={i} setOpenModalChat={setOpenModalChat} />
+                            <CardItems item={item} key={i} setOpenModalChat={setOpenModalChat} coordination={coordination} />
                         );
                     })}
                 </div>
