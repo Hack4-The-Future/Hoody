@@ -233,12 +233,11 @@ opacity:0
 
 
          
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium perferendis, dolorum temporibus modi quis minus natus voluptatem possimus, blanditiis dolorem ex ipsum expedita ratione praesentium ab. Ipsam quasi libero blanditiis.</p>
-
+          <p>New vision to reduce waste and share items with those closest to you</p>
           <div className="btn-group">
             <Link className="join" to="/Login">
              join</Link>
-            <Link className="donate" to="/">donate</Link>
+            <Link className="donate" to="/Login">donate</Link>
           </div>
 
 

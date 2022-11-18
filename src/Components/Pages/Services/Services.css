@@ -38,6 +38,8 @@
     gap:2rem;
     margin: auto;
     width: 100%;
+    animation: fadeIn 1s ease-in forwards;
+    
 }
 
 .S-Box{
@@ -53,6 +55,7 @@
     border-radius: 5px;
    transition: 400ms all ease;
    width: 250px;
+   
 }
 
 
@@ -121,8 +124,8 @@ transform: scale(1);
 
 }
 .S-Box:hover{
-    transform: scale(1.05);
-    
+    transform: scale(1.06);
+  
 
 }
 .S-Box:hover  .icon >*{

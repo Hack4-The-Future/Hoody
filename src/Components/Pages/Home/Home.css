@@ -422,7 +422,10 @@ background: linear-gradient(60deg, rgba(249,222,172,1) 36%, rgba(244,162,97,1) 5
 
 
 @media screen and (max-width:475px){
+    .home-content{
+        top: 72%;
 
+    }
     
    #content h1{
     
@@ -446,7 +449,7 @@ background: linear-gradient(60deg, rgba(249,222,172,1) 36%, rgba(244,162,97,1) 5
 
 @media screen and (max-width:375px){
     .home-content{
-        top: 1rem;
+        top: 72%;
 
     }
 }

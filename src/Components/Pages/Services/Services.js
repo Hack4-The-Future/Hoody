@@ -5,8 +5,13 @@ import {FaHandHoldingHeart,
   FaHandsHelping,FaHandHolding,
   FaHandHoldingUsd} from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+
 
 function Services() {
+
+  
+   
   return (
     <div className='services about-main' id="service">
       <h1 className="BigTitle">Services</h1>
@@ -22,21 +27,21 @@ function Services() {
             <div className="icon"><FaHandHoldingHeart></FaHandHoldingHeart></div>
             <h4 className="STitle">Donate</h4>
             <p className="SText">You can share your clothes,toys,electronics ...just be a part of us and be a smile maker</p>
-            <a href="" className="SbTN">join</a>
+            <Link to="/Login" className="SbTN">join us</Link>
           </div>
 
-          <div className="S-Box">
+          <div className="S-Box" >
             <div className="icon"><FaHandsHelping></FaHandsHelping></div>
             <h4 className="STitle">Sell</h4>
             <p className="SText">Benefit by selling your precious items with reasonable prices. Explore our community and be a part of us </p>
-            <a href="" className="SbTN">Sell</a>
+            <Link to="/Login" className="SbTN">Register</Link>
           </div>
 
-          <div className="S-Box">
+          <div className="S-Box" >
             <div className="icon"><FaHandHoldingUsd></FaHandHoldingUsd></div>
             <h4 className="STitle">Donate with money</h4>
             <p className="SText">Your small help can make difference ,Start now </p>
-            <a href="" className="SbTN">Donate</a>
+            <Link to="/Login" className="SbTN">Donate</Link>
           </div>
 
 
@@ -44,7 +49,7 @@ function Services() {
             <div className="icon"><FaHandHolding></FaHandHolding></div>
             <h4 className="STitle">Take</h4>
             <p className="SText">Need stuff? don't worry you can get the item you want and contact the donor. Be a part of our community</p>
-            <NavLink to="/Login" className="SbTN">subscribe</NavLink>
+            <Link to="/Login" className="SbTN">Join us</Link>
           </div>
 
         </div>

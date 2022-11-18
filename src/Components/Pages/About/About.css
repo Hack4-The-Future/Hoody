@@ -319,6 +319,7 @@ padding: 1rem 2rem .8rem;
     text-align: center;
     border-radius: 50%;
     font-size: 1.8rem;
+    animation:fadeIn 1s linear forwards;
 
 }
 .circle h3{
@@ -347,6 +348,7 @@ padding: 1rem 2rem .8rem;
 /* background:url('../../../assets/pattern-png.png'); */
 /* background-color: rgb(38, 70, 83); */
    /* margin:4rem; */
+   animation:fadeInUp 1s linear forwards;
 }
 .Founders h1{
     /* color: var(--color-font-orange2); */
@@ -556,5 +558,30 @@ transform: scale(1.2);
     }
     .Founder-box {
         margin:3rem .1rem;
+    }
+}
+
+
+@media screen and (max-width:400px){
+    .circles{
+        padding: 0;
+
+    }
+    .circle-content{
+        padding: 5px;
+
+    }
+    .circle{
+        width: 100px;
+        height: 100px;
+        font-size: 1rem;
+    
+    }
+   
+    .circle-content p{
+        font-size: 12px;
+    }
+    .circle-content small{
+        font-size: 10px;
     }
 }
