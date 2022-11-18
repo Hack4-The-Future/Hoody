@@ -22,7 +22,7 @@
     box-sizing: border-box;
 }
 .formContainer{
-    background-color: #fa0c04;
+    // background-color: #fa0c04;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -115,6 +115,7 @@
         display: flex;
         overflow: hidden;
         margin: 7% auto;
+        animation: zoomIn 1s ease;
         @include tablet{
             width: 100%;
         }

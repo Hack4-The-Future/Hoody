@@ -145,6 +145,8 @@
   -moz-box-shadow: -7px -4px 71px -11px rgba(0, 0, 0, 0.65);
   border-radius: 15px;
   transition: 400ms all ease;
+  -webkit-animation: fade 1s ease forwards;
+          animation: fade 1s ease forwards;
 }
 .dashboard .main-profile .main-profileContent .others-items .map .items-box .item-card img {
   width: 250px;
@@ -255,6 +257,8 @@
   grid-template-rows: 100px 1fr;
   overflow: hidden;
   max-height: 100vh;
+  -webkit-animation: fadeInLeft 2s ease forwards;
+          animation: fadeInLeft 2s ease forwards;
 }
 .dashboard .sidebar-profile .logo {
   place-self: center;
@@ -428,6 +432,8 @@
   border-radius: 5px;
   text-align: center;
   padding-top: 5rem;
+  -webkit-animation: zoomIn 1s ease;
+          animation: zoomIn 1s ease;
 }
 .user-items h5 {
   position: absolute;
@@ -567,6 +573,8 @@
   }
   .dashboard .sidebar-profile {
     padding: 0;
+    -webkit-animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 1s ease forwards;
   }
   .dashboard .sidebar-profile .sidebar-content .user-pic img {
     width: 100px;

@@ -23,6 +23,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;
+  -webkit-animation: zoomIn 1s ease;
+          animation: zoomIn 1s ease;
 }
 .modal-content .modal-head {
   display: flex;
